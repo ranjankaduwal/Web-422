@@ -9,14 +9,17 @@
 *  Vercel App (Deployed) Link: 
 *
 ********************************************************************************/ 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import '../styles/globals.css'; 
-import Layout from '../components/Layout'; 
+import MainNav from './MainNav';
+import { Container } from 'react-bootstrap';
 
-export default function MyApp({ Component, pageProps }) {
+export default function Layout({ children }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <MainNav />
+      <Container>
+        {children}
+      </Container>
+      <br />
+    </>
   );
 }

@@ -8,15 +8,20 @@
 *
 *  Vercel App (Deployed) Link: 
 *
-********************************************************************************/ 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import '../styles/globals.css'; 
-import Layout from '../components/Layout'; 
+********************************************************************************/  
+import { useRouter } from 'next/router';
+import { Row, Col } from 'react-bootstrap';
+import ArtworkCardDetail from '@/components/ArtworkCardDetail';
 
-export default function MyApp({ Component, pageProps }) {
+export default function ArtworkById() {
+  const router = useRouter();
+  const { objectID } = router.query;
+
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Row>
+      <Col>
+        <ArtworkCardDetail objectID={objectID} />
+      </Col>
+    </Row>
   );
 }
